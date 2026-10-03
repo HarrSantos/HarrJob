@@ -1,0 +1,76 @@
+/* HarrJob — área empresarial (sidebar-empresa + painel). Reutiliza .sidebar/.nav-item etc. do style.css */
+
+/* Sidebar: logo da empresa (quadrado arredondado em vez de círculo) */
+.avatar-empresa { overflow: hidden; border-radius: var(--raio-md); }
+.avatar-empresa img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Cabeçalho */
+.painel-topo { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; margin-bottom: 32px; }
+.painel-topo-texto { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+
+/* Resumo */
+.resumo-empresa { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; margin-bottom: 40px; }
+.resumo-card { display: flex; align-items: center; gap: 16px; padding: 20px 24px; }
+.resumo-valor { display: block; font-size: 2rem; line-height: 1; font-weight: 800; letter-spacing: -.02em; }
+.resumo-rotulo { display: block; margin-top: 4px; font-size: .875rem; font-weight: 600; color: var(--texto-2); }
+
+/* Layout */
+.painel-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+.painel-principal { display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+.painel-lateral { display: flex; flex-direction: column; gap: 20px; }
+.painel-secao-cab { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
+.painel-secao-cab h2 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.015em; }
+.link-acao { font-size: .9375rem; font-weight: 700; color: var(--roxo); transition: color .15s; }
+.link-acao:hover { color: var(--roxo-escuro); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Vagas da empresa */
+.vagas-empresa-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.vaga-empresa-card { display: flex; flex-direction: column; gap: 14px; height: 100%; padding: 20px; background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio-lg); box-shadow: var(--sombra); }
+.vaga-empresa-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.vaga-empresa-titulo { font-size: 1.0625rem; line-height: 1.3; font-weight: 800; letter-spacing: -.01em; overflow-wrap: anywhere; }
+.vaga-empresa-status { flex: none; gap: 6px; }
+.vaga-ponto { font-size: .5rem; }
+.status-encerrada { color: var(--texto); background: var(--borda); }
+.vaga-empresa-local { display: flex; align-items: center; gap: 6px; font-size: .9375rem; color: var(--texto-2); }
+.vaga-empresa-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.vaga-empresa-salario { font-weight: 700; }
+.vaga-empresa-rodape { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--borda); font-size: .8125rem; color: var(--texto-2); }
+
+/* Candidaturas recentes */
+.candidaturas-recentes { padding: 4px 24px; }
+.candidatura-recente { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--borda); }
+.candidatura-recente:last-child { border-bottom: 0; }
+.candidatura-avatar { display: grid; place-items: center; width: 40px; height: 40px; font-size: .8125rem; font-weight: 800; color: var(--roxo-escuro); background: var(--roxo-suave); border-radius: 50%; }
+.candidatura-candidato { font-weight: 700; overflow-wrap: anywhere; }
+.candidatura-vaga { font-size: .875rem; color: var(--texto-2); overflow-wrap: anywhere; }
+.candidatura-recente-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.candidatura-data { font-size: .8125rem; color: var(--texto-2); white-space: nowrap; }
+.candidatura-recente-status { gap: 6px; font-weight: 700; border: 1px solid transparent; }
+.status-pendente { color: var(--texto-2); background: var(--fundo); border-color: var(--borda); }
+.status-em-analise { color: var(--roxo-escuro); background: var(--roxo-suave); }
+.status-aprovada { color: #1F6B3A; background: #E7F6EC; }
+.status-rejeitada { color: #9B2C2C; background: #FDECEC; }
+
+/* Informações rápidas */
+.empresa-card { padding: 24px; }
+.empresa-card h2 { margin-bottom: 16px; font-size: 1.0625rem; font-weight: 800; letter-spacing: -.01em; }
+.empresa-card-cab { display: flex; align-items: center; gap: 14px; }
+.empresa-card-nome { font-weight: 800; overflow-wrap: anywhere; }
+.empresa-card-local { display: flex; align-items: center; gap: 6px; margin-top: 2px; font-size: .875rem; color: var(--texto-2); }
+.empresa-card .link-acao { display: inline-block; margin-top: 16px; }
+
+/* Estados vazios (preparados, ocultos por padrão) */
+.estado-vazio { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 48px 24px; text-align: center; background: var(--branco); border: 1px dashed var(--borda); border-radius: var(--raio-lg); }
+.estado-vazio[hidden] { display: none; }
+.estado-vazio .btn { margin-top: 8px; }
+
+@media (max-width: 1024px) {
+  .painel-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .candidaturas-recentes { padding: 4px 18px; }
+  .candidatura-recente { grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; }
+  .candidatura-recente-meta { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .candidatura-recente-link { grid-column: 2; }
+  .painel-topo .btn { width: 100%; }
+}

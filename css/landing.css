@@ -1,0 +1,88 @@
+/* HarrJob — estilos específicos da Landing Page */
+
+/* Hero */
+.hero { padding: 80px 0 96px; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+.hero-texto { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.hero-acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+/* Composição visual do hero */
+.hero-visual { position: relative; padding: 0 0 56px 40px; }
+.vaga-card { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.vaga-topo { display: flex; align-items: center; gap: 14px; }
+.vaga-empresa-logo {
+  display: grid; place-items: center; width: 48px; height: 48px; flex: none;
+  font-weight: 800; color: var(--roxo-escuro); background: var(--roxo-suave); border-radius: var(--raio-md);
+}
+.vaga-empresa { font-size: .875rem; color: var(--texto-2); }
+.vaga-local { display: flex; align-items: center; gap: 6px; font-size: .9375rem; color: var(--texto-2); }
+.vaga-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.vaga-salario { font-size: 1.0625rem; font-weight: 700; }
+.vaga-rodape { padding-top: 16px; border-top: 1px solid var(--borda); font-size: .9375rem; font-weight: 700; color: var(--roxo); }
+.status-card {
+  position: absolute; left: 0; bottom: 0; width: 260px; padding: 16px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.status-card p { font-size: .8125rem; color: var(--texto-2); line-height: 1.4; }
+.status-card strong { display: block; font-size: .9375rem; color: var(--texto); }
+
+/* Cabeçalho de seção */
+.secao-topo { display: flex; flex-direction: column; gap: 12px; max-width: 640px; margin-bottom: 48px; }
+
+/* Como funciona */
+.passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.passo { padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.passo-numero {
+  display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 8px;
+  font-weight: 800; color: var(--branco); background: var(--roxo); border-radius: 50%;
+}
+
+/* Para candidatos */
+.candidatos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.recursos { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+.recurso { display: flex; gap: 16px; align-items: flex-start; }
+.recurso p { margin-top: 4px; color: var(--texto-2); }
+.candidaturas-preview { padding: 28px; }
+.candidaturas-preview .titulo-md { margin-bottom: 8px; }
+.candidatura-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--borda); }
+.candidatura-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.candidatura-cargo { font-weight: 700; }
+.candidatura-empresa { font-size: .875rem; color: var(--texto-2); }
+
+/* Para empresas */
+.empresas-bloco {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  padding: 72px; color: var(--branco); background: var(--roxo-escuro); border-radius: 28px;
+}
+.empresas-bloco .texto-lead { color: rgba(255, 255, 255, .8); }
+.empresas-texto { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.empresas-texto .btn { margin-top: 12px; }
+.empresas-lista { display: flex; flex-direction: column; gap: 12px; }
+.empresas-lista li {
+  display: flex; align-items: center; gap: 16px; padding: 18px 20px;
+  font-weight: 700; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--raio-md);
+}
+.empresas-lista i { font-size: 1.25rem; }
+
+/* CTA final */
+.cta-final { padding: 24px 0 112px; }
+.cta-caixa { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 80px 32px; text-align: center; }
+.cta-caixa .texto-lead { max-width: 46ch; }
+.cta-acoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .hero { padding: 56px 0 72px; }
+  .hero-grid, .candidatos-grid, .empresas-bloco { grid-template-columns: 1fr; gap: 48px; }
+  .passos { grid-template-columns: 1fr; }
+  .empresas-bloco { padding: 48px 32px; }
+}
+@media (max-width: 560px) {
+  .hero-visual { padding: 0 0 72px; }
+  .vaga-card, .candidaturas-preview { padding: 22px; }
+  .status-card { width: calc(100% - 24px); left: 12px; }
+  .hero-acoes .btn, .cta-acoes .btn { width: 100%; }
+  .empresas-bloco { padding: 40px 22px; border-radius: 20px; }
+  .cta-caixa { padding: 56px 22px; }
+  .candidatura-item { flex-wrap: wrap; }
+}

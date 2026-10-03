@@ -1,0 +1,64 @@
+/* HarrJob — detalhes da vaga (estilos específicos; globais ficam em style.css) */
+
+.voltar { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: .9375rem; font-weight: 700; color: var(--texto-2); transition: color .15s; }
+.voltar:hover { color: var(--roxo-escuro); }
+
+/* Layout em duas colunas */
+.vaga-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
+.vaga-principal { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.vaga-lateral { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 20px; }
+.vaga-cand { order: 1; }
+.vaga-empresa { order: 2; }
+
+/* Cabeçalho */
+.vaga-hero, .vaga-secao { padding: 32px; }
+.vaga-topo { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.empresa-logo { display: grid; place-items: center; flex: none; width: 52px; height: 52px; overflow: hidden; font-weight: 800; color: var(--roxo-escuro); background: var(--roxo-suave); border-radius: var(--raio-md); }
+.empresa-logo img { width: 100%; height: 100%; object-fit: cover; }
+.empresa-logo-sm { width: 44px; height: 44px; }
+.vaga-empresa-nome { font-weight: 600; color: var(--texto-2); }
+.vaga-titulo { font-size: clamp(1.625rem, 3.2vw, 2.125rem); line-height: 1.15; font-weight: 800; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.vaga-aviso { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 6px 14px; font-size: .875rem; font-weight: 700; background: var(--borda); border-radius: 999px; }
+
+/* Informações principais */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 12px; margin-top: 28px; }
+.info-item { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px; background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio-md); }
+.info-icone { display: grid; place-items: center; flex: none; width: 36px; height: 36px; color: var(--roxo); background: var(--branco); border-radius: 10px; }
+.info-texto { display: flex; flex-direction: column; min-width: 0; line-height: 1.35; }
+.info-rotulo { font-size: .75rem; font-weight: 700; color: var(--texto-2); }
+.info-valor { font-weight: 700; overflow-wrap: anywhere; }
+.info-valor.is-vazio { font-weight: 600; color: var(--texto-2); }
+.vaga-ponto { font-size: .5rem; }
+.tag-encerrada { color: var(--texto); background: var(--borda); }
+
+/* Conteúdo */
+.vaga-secao h2 { margin-bottom: 16px; font-size: 1.25rem; font-weight: 800; letter-spacing: -.015em; }
+.vaga-texto p { line-height: 1.75; }
+.vaga-texto p + p { margin-top: 16px; }
+.req-lista { display: flex; flex-direction: column; gap: 12px; }
+.req-lista li { display: flex; align-items: flex-start; gap: 12px; line-height: 1.6; }
+.req-lista i { flex: none; margin-top: 3px; color: var(--roxo); }
+
+/* Coluna lateral */
+.vaga-empresa, .vaga-cand { padding: 24px; }
+.vaga-empresa h2, .vaga-cand h2 { font-size: 1.0625rem; font-weight: 800; letter-spacing: -.01em; }
+.empresa-cab { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.empresa-nome { font-weight: 700; }
+.empresa-linha { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: .9375rem; color: var(--texto-2); }
+.empresa-site { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: .9375rem; font-weight: 700; color: var(--roxo); }
+.empresa-site:hover { color: var(--roxo-escuro); text-decoration: underline; text-underline-offset: 3px; }
+.cand-texto { margin: 8px 0 20px; font-size: .9375rem; color: var(--texto-2); }
+.cand-botao { width: 100%; }
+.cand-botao:disabled, .cand-botao:disabled:hover { color: var(--texto-2); background: var(--borda); cursor: not-allowed; }
+.cand-aviso { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: .875rem; color: var(--texto-2); }
+
+/* Tablet e mobile: uma coluna (cabeçalho → descrição → requisitos → empresa → candidatura) */
+@media (max-width: 1024px) {
+  .vaga-layout { display: flex; flex-direction: column; gap: 20px; }
+  .vaga-principal, .vaga-lateral { display: contents; }
+  .vaga-hero { order: 1; } .vaga-desc { order: 2; } .vaga-req { order: 3; } .vaga-empresa { order: 4; } .vaga-cand { order: 5; }
+}
+@media (max-width: 560px) {
+  .vaga-hero, .vaga-secao { padding: 22px; }
+  .vaga-empresa, .vaga-cand { padding: 22px; }
+}

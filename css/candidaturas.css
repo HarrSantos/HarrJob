@@ -1,0 +1,60 @@
+/* HarrJob — minhas candidaturas (estilos específicos; globais ficam em style.css) */
+
+.candidaturas-topo { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.candidaturas-secao { margin-bottom: 32px; }
+.candidaturas-secao > h2:not(.sr-only) { margin-bottom: 16px; font-size: 1.125rem; font-weight: 800; letter-spacing: -.01em; }
+
+/* Resumo */
+.resumo-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+.resumo-item { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio-md); }
+.resumo-rotulo { font-size: .8125rem; font-weight: 700; color: var(--texto-2); }
+.resumo-valor { font-size: 1.75rem; line-height: 1.1; font-weight: 800; letter-spacing: -.02em; }
+.resumo-item.is-total .resumo-valor { color: var(--roxo); }
+
+/* Busca e filtro de status */
+.candidaturas-filtros { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; padding: 20px; }
+.filtro-busca { flex: 2 1 280px; }
+.filtro-status { flex: 1 1 200px; }
+.busca-campo { position: relative; }
+.busca-campo i { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); color: var(--roxo); pointer-events: none; }
+.busca-campo .input { padding-left: 44px; }
+.candidaturas-filtros .btn { min-height: 48px; padding: 0 24px; }
+
+/* Lista e cards */
+.lista-candidaturas { display: flex; flex-direction: column; gap: 16px; }
+.candidatura-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 24px; background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio-lg); box-shadow: var(--sombra); transition: border-color .15s; }
+.candidatura-card:hover { border-color: #D4CEE8; }
+.candidatura-logo { display: grid; place-items: center; width: 52px; height: 52px; overflow: hidden; font-weight: 800; color: var(--roxo-escuro); background: var(--roxo-suave); border-radius: var(--raio-md); }
+.candidatura-logo img { width: 100%; height: 100%; object-fit: cover; }
+.candidatura-empresa { font-size: .875rem; font-weight: 600; color: var(--texto-2); }
+.candidatura-titulo { margin-top: 2px; font-size: 1.1875rem; line-height: 1.3; font-weight: 800; letter-spacing: -.015em; overflow-wrap: anywhere; }
+.candidatura-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 12px; }
+.candidatura-local { display: inline-flex; align-items: center; gap: 6px; font-size: .9375rem; color: var(--texto-2); }
+.candidatura-lateral { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right; }
+.candidatura-data { font-size: .8125rem; color: var(--texto-2); }
+.candidatura-link { font-size: .9375rem; font-weight: 700; color: var(--roxo); transition: color .15s; }
+.candidatura-link:hover { color: var(--roxo-escuro); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Status (somente os 4 do banco) */
+.candidatura-status { gap: 6px; font-weight: 700; border: 1px solid transparent; }
+.status-pendente { color: var(--texto-2); background: var(--fundo); border-color: var(--borda); }
+.status-em-analise { color: var(--roxo-escuro); background: var(--roxo-suave); }
+.status-aprovada { color: #1F6B3A; background: #E7F6EC; }
+.status-rejeitada { color: #9B2C2C; background: #FDECEC; }
+
+/* Estados vazios (preparados, ocultos por padrão) */
+.estado-vazio { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 64px 24px; text-align: center; background: var(--branco); border: 1px dashed var(--borda); border-radius: var(--raio-lg); }
+.estado-vazio[hidden] { display: none; }
+.estado-vazio .btn { margin-top: 8px; }
+
+@media (max-width: 720px) {
+  .candidatura-card { grid-template-columns: auto minmax(0, 1fr); gap: 16px; padding: 20px; }
+  .candidatura-logo { width: 44px; height: 44px; }
+  .candidatura-lateral { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 16px; text-align: left; border-top: 1px solid var(--borda); }
+  .candidatura-data { order: 3; flex: 1 0 100%; }
+}
+@media (max-width: 560px) {
+  .candidaturas-filtros { padding: 16px; }
+  .candidaturas-filtros .btn { width: 100%; }
+  .estado-vazio { padding: 48px 20px; }
+}

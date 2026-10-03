@@ -1,0 +1,53 @@
+/* HarrJob — vagas da empresa (reutiliza cards, status e estados vazios do empresa.css) */
+
+.vagas-topo { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.vagas-gestao { display: flex; flex-direction: column; gap: 40px; }
+
+/* Formulário de nova vaga */
+.vaga-form-card { padding: 28px; }
+.vaga-form-nota { margin-bottom: 20px; font-size: .875rem; color: var(--texto-2); }
+.vaga-form { display: flex; flex-direction: column; gap: 20px; }
+.vaga-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.vaga-form legend { padding: 0; margin-bottom: 8px; font-size: .875rem; font-weight: 700; }
+.campo-opcional { font-weight: 500; color: var(--texto-2); }
+.campo-ajuda { font-size: .8125rem; color: var(--texto-2); }
+.campo-area { min-height: 132px; padding: 12px 16px; line-height: 1.6; resize: vertical; }
+.vagas-grade-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.input-moeda { position: relative; }
+.input-moeda span { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); font-weight: 700; color: var(--texto-2); pointer-events: none; }
+.input-moeda .input { padding-left: 44px; }
+.vaga-form fieldset .campo-ajuda { margin-top: 8px; }
+.vaga-status-info { display: flex; align-items: center; gap: 10px; padding: 12px 14px; font-size: .875rem; color: var(--texto-2); background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio-md); }
+.vaga-form .btn { align-self: flex-start; }
+
+/* Busca e filtro (menores que a busca da área do candidato) */
+.vagas-filtros { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; margin-bottom: 20px; }
+.vagas-filtros .filtro-busca { flex: 2 1 200px; }
+.vagas-filtros .filtro-status { flex: 1 1 140px; }
+.vagas-filtros .btn { min-height: 48px; }
+.busca-campo { position: relative; }
+.busca-campo i { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); color: var(--roxo); pointer-events: none; }
+.busca-campo .input { padding-left: 44px; }
+
+/* Cards de vagas (base visual em empresa.css) */
+.vaga-empresa-cabecalho { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.vaga-empresa-salario.is-vazio { font-size: .9375rem; font-weight: 600; color: var(--texto-2); }
+.vaga-empresa-data { font-size: .8125rem; color: var(--texto-2); }
+.vaga-empresa-card.is-encerrada { background: var(--fundo); box-shadow: none; }
+.vaga-empresa-card.is-encerrada .vaga-empresa-titulo { color: var(--texto-2); }
+.vaga-empresa-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--borda); }
+.vaga-empresa-acoes .btn { width: 100%; min-height: 40px; padding: 0 16px; font-size: .875rem; }
+.vaga-empresa-acoes > a, .form-encerrar-vaga { flex: 1 1 130px; margin: 0; }
+.btn-encerrar-vaga { color: #9B2C2C; background: var(--branco); border-color: var(--borda); }
+.btn-encerrar-vaga:hover { background: #FDECEC; border-color: #9B2C2C; }
+
+@media (min-width: 1280px) {
+  .vagas-gestao { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 32px; align-items: start; }
+  .sec-suas-vagas { grid-column: 1; grid-row: 1; }
+  .sec-nova-vaga { grid-column: 2; grid-row: 1; }
+}
+@media (max-width: 560px) {
+  .vaga-form-card { padding: 22px; }
+  .vagas-grade-2 { grid-template-columns: 1fr; }
+  .vaga-form .btn, .vagas-filtros .btn { width: 100%; }
+}
