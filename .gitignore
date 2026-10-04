@@ -1,2 +1,4 @@
 config/conexao.php
 config/erros.log
+uploads/empresas/*
+!uploads/empresas/.gitkeep

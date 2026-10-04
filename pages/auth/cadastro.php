@@ -130,6 +130,6 @@
       </p>
     </section>
   </main>
-
+  <script src="../../js/auth/cadastro.js"></script>
 </body>
 </html>
